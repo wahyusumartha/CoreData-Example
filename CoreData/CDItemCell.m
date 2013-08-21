@@ -34,7 +34,7 @@
     [self.positionIndexLabel setTextAlignment:NSTextAlignmentCenter];
     [self.contentView addSubview:self.positionIndexLabel];
     
-    self.itemNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, (kMaxHeightOfCell-20)/2, 100, 20)];
+    self.itemNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, (kMaxHeightOfCell-20)/2, 120, 20)];
     [self.itemNameLabel setFont:[UIFont systemFontOfSize:18]];
     [self.itemNameLabel setBackgroundColor:[UIColor clearColor]];
     [self.itemNameLabel setTextAlignment:NSTextAlignmentLeft];

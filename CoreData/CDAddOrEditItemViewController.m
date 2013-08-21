@@ -78,6 +78,7 @@
             
         } else {
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationToReloadData object:nil];
             [self.navigationController popViewControllerAnimated:YES];
             
         }

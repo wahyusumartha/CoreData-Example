@@ -38,6 +38,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadItemsData) name:kNotificationToReloadData object:nil];
+    
     [self setTitle:@"Manage Items"];
     
     // initialize items array
@@ -125,7 +127,7 @@
     [request setEntity:entity];
     
     // sort item data
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemId" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemId" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:sortDescriptors];
     sortDescriptors = nil;
