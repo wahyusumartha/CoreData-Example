@@ -73,6 +73,13 @@
     return [self.itemsArray count];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Item *item = [self.itemsArray objectAtIndex:indexPath.row];
+    
+    [self editItem:item];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60.f;
@@ -113,8 +120,20 @@
 {
     CDAddOrEditItemViewController *addItemVC = [[CDAddOrEditItemViewController alloc] init];
     addItemVC.managedObjectContext = self.managedObjectContext;
+    [addItemVC setIsUpdateData:NO];
     
     [self.navigationController pushViewController:addItemVC animated:YES];
+}
+
+#pragma mark - Edit Item 
+- (void)editItem:(Item *)item;
+{
+    CDAddOrEditItemViewController *editItemVC = [[CDAddOrEditItemViewController alloc] init];
+    editItemVC.managedObjectContext = self.managedObjectContext;
+    [editItemVC setIsUpdateData:YES];
+    [editItemVC setCurrentItem:item];
+    
+    [self.navigationController pushViewController:editItemVC animated:YES];
 }
 
 

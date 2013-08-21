@@ -10,9 +10,13 @@
 
 static NSString * const kNotificationToReloadData = @"kNotificationToReloadData";
 
+@class Item;
+
 @interface CDAddOrEditItemViewController : UIViewController <UITextFieldDelegate> {
     
     NSManagedObjectContext *managedObjectContext;
+    BOOL updateData;
+    Item *currentItem;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *itemNameTextField;
@@ -21,7 +25,9 @@ static NSString * const kNotificationToReloadData = @"kNotificationToReloadData"
 @property (weak, nonatomic) IBOutlet UIButton *saveOrUpdateBtn;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (assign, nonatomic, getter = isUpdateData, setter = setIsUpdateData:) BOOL updateData;
+@property (strong, nonatomic) Item *currentItem;
 
-- (IBAction)saveItemData:(id)sender;
+- (IBAction)saveOrUpdate:(id)sender;
 
 @end
