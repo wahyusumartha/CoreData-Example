@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDAppDelegate : UIResponder <UIApplicationDelegate>
+@interface CDAppDelegate : UIResponder <UIApplicationDelegate> {
+    UINavigationController *navigationController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -16,7 +18,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic, strong) UINavigationController *navigationController;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
 
 @end

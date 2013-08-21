@@ -24,6 +24,11 @@
 		74B1381617C4B4D9008425CF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B137F517C4B4D8008425CF /* CoreData.framework */; };
 		74B1381E17C4B4D9008425CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74B1381C17C4B4D9008425CF /* InfoPlist.strings */; };
 		74B1382117C4B4D9008425CF /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B1382017C4B4D9008425CF /* CoreDataTests.m */; };
+		74B1383017C4BFDB008425CF /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B1382F17C4BFDB008425CF /* Item.m */; };
+		74B1383417C4C00F008425CF /* CDItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B1383317C4C00F008425CF /* CDItemViewController.m */; };
+		74B1383C17C4C33E008425CF /* CDAddOrEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B1383A17C4C33D008425CF /* CDAddOrEditItemViewController.m */; };
+		74B1383D17C4C33E008425CF /* CDAddOrEditItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B1383B17C4C33E008425CF /* CDAddOrEditItemViewController.xib */; };
+		74B1384017C4CCF3008425CF /* CDItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B1383F17C4CCF3008425CF /* CDItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,15 @@
 		74B1381D17C4B4D9008425CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74B1381F17C4B4D9008425CF /* CoreDataTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataTests.h; sourceTree = "<group>"; };
 		74B1382017C4B4D9008425CF /* CoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataTests.m; sourceTree = "<group>"; };
+		74B1382E17C4BFDB008425CF /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		74B1382F17C4BFDB008425CF /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		74B1383217C4C00F008425CF /* CDItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDItemViewController.h; sourceTree = "<group>"; };
+		74B1383317C4C00F008425CF /* CDItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDItemViewController.m; sourceTree = "<group>"; };
+		74B1383917C4C33D008425CF /* CDAddOrEditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAddOrEditItemViewController.h; sourceTree = "<group>"; };
+		74B1383A17C4C33D008425CF /* CDAddOrEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAddOrEditItemViewController.m; sourceTree = "<group>"; };
+		74B1383B17C4C33E008425CF /* CDAddOrEditItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDAddOrEditItemViewController.xib; sourceTree = "<group>"; };
+		74B1383E17C4CCF3008425CF /* CDItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDItemCell.h; sourceTree = "<group>"; };
+		74B1383F17C4CCF3008425CF /* CDItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +134,8 @@
 		74B137F717C4B4D8008425CF /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				74B1383117C4BFF2008425CF /* View Controllers */,
+				74B1382D17C4BFB1008425CF /* Model */,
 				74B1380017C4B4D8008425CF /* CDAppDelegate.h */,
 				74B1380117C4B4D8008425CF /* CDAppDelegate.m */,
 				74B1380917C4B4D8008425CF /* CoreData.xcdatamodeld */,
@@ -159,6 +175,37 @@
 				74B1381C17C4B4D9008425CF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74B1382D17C4BFB1008425CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74B1382E17C4BFDB008425CF /* Item.h */,
+				74B1382F17C4BFDB008425CF /* Item.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		74B1383117C4BFF2008425CF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74B1383517C4C2D9008425CF /* Item CRUD */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		74B1383517C4C2D9008425CF /* Item CRUD */ = {
+			isa = PBXGroup;
+			children = (
+				74B1383217C4C00F008425CF /* CDItemViewController.h */,
+				74B1383317C4C00F008425CF /* CDItemViewController.m */,
+				74B1383917C4C33D008425CF /* CDAddOrEditItemViewController.h */,
+				74B1383A17C4C33D008425CF /* CDAddOrEditItemViewController.m */,
+				74B1383B17C4C33E008425CF /* CDAddOrEditItemViewController.xib */,
+				74B1383E17C4CCF3008425CF /* CDItemCell.h */,
+				74B1383F17C4CCF3008425CF /* CDItemCell.m */,
+			);
+			name = "Item CRUD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +284,7 @@
 				74B1380417C4B4D8008425CF /* Default.png in Resources */,
 				74B1380617C4B4D8008425CF /* Default@2x.png in Resources */,
 				74B1380817C4B4D8008425CF /* Default-568h@2x.png in Resources */,
+				74B1383D17C4C33E008425CF /* CDAddOrEditItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +322,10 @@
 				74B137FE17C4B4D8008425CF /* main.m in Sources */,
 				74B1380217C4B4D8008425CF /* CDAppDelegate.m in Sources */,
 				74B1380B17C4B4D8008425CF /* CoreData.xcdatamodeld in Sources */,
+				74B1383017C4BFDB008425CF /* Item.m in Sources */,
+				74B1383417C4C00F008425CF /* CDItemViewController.m in Sources */,
+				74B1383C17C4C33E008425CF /* CDAddOrEditItemViewController.m in Sources */,
+				74B1384017C4CCF3008425CF /* CDItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

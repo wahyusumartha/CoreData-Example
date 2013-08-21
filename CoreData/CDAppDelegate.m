@@ -8,16 +8,29 @@
 
 #import "CDAppDelegate.h"
 
+#import "CDItemViewController.h"
+
 @implementation CDAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    
+    CDItemViewController *itemVC = [[CDItemViewController alloc] init];
+    itemVC.managedObjectContext = [self managedObjectContext];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:itemVC];
+
+    [self.window setRootViewController:self.navigationController];
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
