@@ -85,6 +85,15 @@
     return 60.f;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        Item *itemToDelete = [self.itemsArray objectAtIndex:indexPath.row];
+        [self deleteItem:itemToDelete atIndexPath:indexPath withTableView:tableView];
+    }
+}
+
 
 #pragma mark - UITableView DataSource 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,6 +145,28 @@
     [self.navigationController pushViewController:editItemVC animated:YES];
 }
 
+#pragma mark - Delete Item 
+- (void)deleteItem:(Item *)item atIndexPath:(NSIndexPath *)indexPath withTableView:(UITableView *)tableView
+{
+    [self.managedObjectContext deleteObject:item];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [errorAlert show];
+        errorAlert = nil;
+        
+    } else {
+        
+        // update the data
+        [self.itemsArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+    }
+}
+
 
 #pragma mark - Load Items Data 
 - (void)loadItemsData
@@ -154,7 +185,7 @@
     
     // Execute The Request
     NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] copy];
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
     
     if (!mutableFetchResults) {
         NSLog(@"Error: %@", [error localizedDescription]);
